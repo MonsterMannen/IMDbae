@@ -1,9 +1,10 @@
 {
     "manifest_version": 2,
 
-    "name": "IMDbae",
-    "version": "1.0.0",
-    "description": "IMDb Age Extension. Displays the actors/actresses age",
+    "name": "IMDbae - IMDb Age Extension",
+    "short_name": "IMDbae",
+    "version": "1.0.1",
+    "description": "Displays actors and actresses age",
 
     "content_scripts": [{
         "css": [],
@@ -16,5 +17,4 @@
         "48": "icon48.png",
         "128": "icon128.png"
     }
-
 }
