@@ -26,10 +26,7 @@ if(d.getMonth() >= actorMNr){
 console.log(age);
 
 // #################################################################
-
-var temp = inner.substring(0, pos) + "(" + age + " age)";
-temp += inner.substring(pos);
-
+// change site text
 
 var x = document.getElementById("name-born-info");
 var child = x.childNodes[4];
