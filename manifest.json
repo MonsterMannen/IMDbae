@@ -1,0 +1,20 @@
+{
+    "manifest_version": 2,
+
+    "name": "IMDbae",
+    "version": "1.0.0",
+    "description": "IMDb Age Extension. Displays the actors/actresses age",
+
+    "content_scripts": [{
+        "css": [],
+        "js": ["content.js"],
+        "matches": ["https://www.imdb.com/name/*"]
+    }],
+
+    "icons": {
+        "16": "icon16.png",
+        "48": "icon48.png",
+        "128": "icon128.png"
+    }
+
+}
