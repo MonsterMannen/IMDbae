@@ -1,2 +1,6 @@
 # IMDbae
-Chrome IMDb Age Extension.
+IMDb Age Extension
+
+###### Chrome Web Store
+
+https://chrome.google.com/webstore/detail/imdbae/ceohjkmiefnmckmdliodjobpdipnflgd
