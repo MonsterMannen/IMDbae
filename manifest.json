@@ -3,7 +3,7 @@
 
     "name": "IMDbae - IMDb Age Extension",
     "short_name": "IMDbae",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Displays actors and actresses age",
 
     "content_scripts": [{
