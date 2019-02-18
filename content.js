@@ -21,6 +21,11 @@ if(d.getMonth() > actorMNr){
 if(!document.getElementById("name-death-info")){    // chech if actor alive
     var x = document.getElementById("name-born-info");
     var child = x.childNodes[4];
-
-    child.nodeValue = "(age " + age + ") in ";
+    
+    // only add "in" for people with a birth location
+    if(x.childNodes.length > 5){
+        child.nodeValue = "(age " + age + ") in ";
+    }else{
+        child.nodeValue = "(age " + age + ")";
+    }
 }
