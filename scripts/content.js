@@ -1,28 +1,34 @@
 log("Extension loaded")
 
 // check if actor/actress is alive
+actorAlive = false
 var deadDivs = document.querySelectorAll(".sc-dec7a8b-1")
-actorAlive = deadDivs.length <= 2
+if(deadDivs) {
+    actorAlive = deadDivs.length <= 2
+}
 log("alive: " + actorAlive)
 
 if(actorAlive) {
     var bornClasses = document.querySelector(".sc-dec7a8b-1");
-    var childNodes = bornClasses.querySelectorAll(":scope > .sc-dec7a8b-2");
 
-    bornDateText = childNodes[1].innerHTML
-    age = calcAge(bornDateText)
-    log("born: " + bornDateText + " | " + "age: " + age)
+    if(bornClasses) {
+        var childNodes = bornClasses.querySelectorAll(":scope > .sc-dec7a8b-2");
 
-    // small screens div age update
-    childNodes[1].innerText = childNodes[1].innerText + ` (age ${age})`
+        bornDateText = childNodes[1].innerHTML
+        age = calcAge(bornDateText)
+        log("born: " + bornDateText + " | " + "age: " + age)
 
-    // big screens div age update
-    bigScreenDate = document.querySelectorAll(".sc-99c6a4c3-1")[1];
-    b = bigScreenDate.querySelector(".sc-dec7a8b-1");
-    b = b.querySelectorAll(".sc-dec7a8b-2")[1];
-    b.innerText = b.innerText + ` (age ${age})`
+        // small screens div age update
+        childNodes[1].innerText = childNodes[1].innerText + ` (age ${age})`
 
-    log("html updated with age :)")
+        // big screens div age update
+        bigScreenDate = document.querySelectorAll(".sc-99c6a4c3-1")[1];
+        b = bigScreenDate.querySelector(".sc-dec7a8b-1");
+        b = b.querySelectorAll(".sc-dec7a8b-2")[1];
+        b.innerText = b.innerText + ` (age ${age})`
+
+        log("html updated with age :)")
+    }
 }
 
 function calcAge(bornDate) {
