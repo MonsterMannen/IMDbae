@@ -1,15 +1,29 @@
 log("Extension loaded")
 
-const bornClasses = document.querySelector(".sc-dec7a8b-1");
-var childNodes = bornClasses.querySelectorAll(":scope > .sc-dec7a8b-2");
-bornDateText = childNodes[1].innerHTML
-log("born: " + bornDateText)
+// check if actor/actress is alive
+var deadDivs = document.querySelectorAll(".sc-dec7a8b-1")
+actorAlive = deadDivs.length <= 2
+log("alive: " + actorAlive)
 
-age = calcAge(bornDateText)
-log("age: " + age)
+if(actorAlive) {
+    var bornClasses = document.querySelector(".sc-dec7a8b-1");
+    var childNodes = bornClasses.querySelectorAll(":scope > .sc-dec7a8b-2");
 
-// TODO insert age into html
+    bornDateText = childNodes[1].innerHTML
+    age = calcAge(bornDateText)
+    log("born: " + bornDateText + " | " + "age: " + age)
 
+    // small screens div age update
+    childNodes[1].innerText = childNodes[1].innerText + ` (age ${age})`
+
+    // big screens div age update
+    bigScreenDate = document.querySelectorAll(".sc-99c6a4c3-1")[1];
+    b = bigScreenDate.querySelector(".sc-dec7a8b-1");
+    b = b.querySelectorAll(".sc-dec7a8b-2")[1];
+    b.innerText = b.innerText + ` (age ${age})`
+
+    log("html updated with age :)")
+}
 
 function calcAge(bornDate) {
     // bornDate format: September 2, 1964
