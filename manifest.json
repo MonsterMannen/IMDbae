@@ -7,8 +7,13 @@
     "author": "viktorsvensson94@gmail.com",  
     "homepage_url": "https://github.com/MonsterMannen/IMDbae",
     "content_scripts": [{
-        "js": ["scripts/content.js"],
-        "matches": ["https://www.imdb.com/name/*"]
+        "js": [
+            "scripts/content.js"
+        ],
+        "matches": [
+            "https://www.imdb.com/name/*",
+            "https://m.imdb.com/name/*"
+        ]
     }],
 
     "icons": {
