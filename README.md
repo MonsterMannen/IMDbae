@@ -13,6 +13,6 @@ A simple extension that adds actors and actresses age on imdb.com (desktop and m
 
 #### [Chrome](https://chrome.google.com/webstore/detail/imdbae/ceohjkmiefnmckmdliodjobpdipnflgd)
 
-#### [Edge (waiting approval)](https://chrome.google.com/webstore/detail/imdbae/ceohjkmiefnmckmdliodjobpdipnflgd)
+#### [Edge](https://microsoftedge.microsoft.com/addons/detail/imdbae-imdb-age-extensi/bgdgjbpdcfpncfhmjodeiccifbgmilcg)
 
-#### [Firefox (waiting approval)](https://chrome.google.com/webstore/detail/imdbae/ceohjkmiefnmckmdliodjobpdipnflgd)
+#### [Firefox](https://addons.mozilla.org/en-US/firefox/addon/imdbae-imdb-age-extension/)
