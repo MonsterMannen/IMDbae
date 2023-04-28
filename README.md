@@ -7,7 +7,7 @@
 
 A simple extension that adds actors and actresses age on imdb.com (desktop and mobile site)
 
-![promo pic](images/promopic.png)
+![promo pic](promopic.png)
 
 ### Install
 
