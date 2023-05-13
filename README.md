@@ -1,15 +1,13 @@
 
-# IMDbae
+# IMDbae 
 
 ![Chrome Web Store](https://img.shields.io/chrome-web-store/rating/ceohjkmiefnmckmdliodjobpdipnflgd.svg)
 
-### IMDb Age Extension
-
-A simple extension that adds actors and actresses age on imdb.com (desktop and mobile site)
+**IMDb Age Extension**, a simple extension that adds actors and actresses age on imdb.com (desktop and mobile site)
 
 ![promo pic](promopic.png)
 
-### Install
+# Install
 
 * [Chrome](https://chrome.google.com/webstore/detail/imdbae/ceohjkmiefnmckmdliodjobpdipnflgd)
 
