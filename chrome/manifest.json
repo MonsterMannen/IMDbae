@@ -2,7 +2,7 @@
     "manifest_version": 3,
     "name": "IMDbae - IMDb Age Extension",
     "short_name": "IMDbae",
-    "version": "2.2.1",
+    "version": "2.2.2",
     "description": "Adds actors and actresses age besides their born date on IMDb", 
     "author": "viktorsvensson94@gmail.com",
     "homepage_url": "https://github.com/MonsterMannen/IMDbae",
