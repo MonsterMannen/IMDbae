@@ -1,34 +1,44 @@
 // IMDBae
 // adding actors and actresses age besides their born date on imdb.com/name/*
 
+// UPDATE THIS IF IT BREAKS ----------------------------
+QUERY_SELECT = '[data-testid="birth-and-death-section"]'
+// -----------------------------------------------------
+
 log("Extension loaded")
 
+var birth_death_classes = document.querySelectorAll(QUERY_SELECT);
+data_classes_mobile  = birth_death_classes[0].querySelectorAll('span')
+data_classes_desktop = birth_death_classes[1].querySelectorAll('span')
+
+
 if(isActorAlive()) {
-    var bornClasses = document.querySelectorAll(".sc-dec7a8b-1")
+    lastClass_mobile  = data_classes_mobile[data_classes_mobile.length - 1]
+    lastClass_desktop = data_classes_desktop[data_classes_desktop.length - 1]
 
-    if(bornClasses) {
-        bornClasses.forEach(function(c) {
-            bornDateText = c.children[1].innerHTML
-            age = calcAge(bornDateText)
-            log("born: " + bornDateText + " | " + "age: " + age)
-            c.children[1].innerHTML = c.children[1].innerHTML + ` (age ${age})`
-        })
+    bornDateText = lastClass_desktop.innerText
+    age = calcAge(bornDateText)
+    log("born: " + bornDateText + " | " + "age: " + age)
 
-        log("html updated with age :)")
-    }
+    lastClass_mobile.innerHTML = bornDateText + ` (age ${age})`
+    lastClass_desktop.innerHTML = bornDateText + ` (age ${age})`
+    log("html updated with age :)")
 }
+
 
 function isActorAlive() {
-    var actorAlive = false
-    var deadDivs = document.querySelectorAll(".sc-dec7a8b-1")
+    var actorAlive = true
 
-    if(deadDivs) {
-        actorAlive = deadDivs.length <= 2
-    }
+    data_classes_desktop.forEach(d => {
+        if (d.innerText.toLowerCase().includes("died")) {
+            actorAlive = false
+        }
+    })
+
     log("alive: " + actorAlive)
-
     return actorAlive
 }
+
 
 function calcAge(bornDate) {
     // bornDate format: September 2, 1964
@@ -52,6 +62,7 @@ function calcAge(bornDate) {
 
     return age
 }
+
 
 function log(text) {
     console.log("IMDbae: ", text)
