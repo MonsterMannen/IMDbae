@@ -1,26 +1,35 @@
 // IMDBae
 // adding actors and actresses age besides their born date on imdb.com/name/*
 
-var html_ID = ".sc-59a43f1c-2"
+// UPDATE THIS IF IT BREAKS ----------------------------
+QUERY_SELECT = '[data-testid="birth-and-death-section"]'
+// -----------------------------------------------------
 
 log("Extension loaded")
 
-if(isActorAlive()) {
-    var bornClasses = document.querySelectorAll(html_ID)
-    lastClass = bornClasses[bornClasses.length - 1]
+var birth_death_classes = document.querySelectorAll(QUERY_SELECT);
+data_classes_mobile  = birth_death_classes[0].querySelectorAll('span')
+data_classes_desktop = birth_death_classes[1].querySelectorAll('span')
 
-    bornDateText = lastClass.innerText
+
+if(isActorAlive()) {
+    lastClass_mobile  = data_classes_mobile[data_classes_mobile.length - 1]
+    lastClass_desktop = data_classes_desktop[data_classes_desktop.length - 1]
+
+    bornDateText = lastClass_desktop.innerText
     age = calcAge(bornDateText)
     log("born: " + bornDateText + " | " + "age: " + age)
-    lastClass.innerHTML = bornDateText + ` (age ${age})`
+
+    lastClass_mobile.innerHTML = bornDateText + ` (age ${age})`
+    lastClass_desktop.innerHTML = bornDateText + ` (age ${age})`
     log("html updated with age :)")
 }
 
+
 function isActorAlive() {
     var actorAlive = true
-    var deadDivs = document.querySelectorAll(html_ID)
 
-    deadDivs.forEach(d => {
+    data_classes_desktop.forEach(d => {
         if (d.innerText.toLowerCase().includes("died")) {
             actorAlive = false
         }
@@ -29,6 +38,7 @@ function isActorAlive() {
     log("alive: " + actorAlive)
     return actorAlive
 }
+
 
 function calcAge(bornDate) {
     // bornDate format: September 2, 1964
@@ -52,6 +62,7 @@ function calcAge(bornDate) {
 
     return age
 }
+
 
 function log(text) {
     console.log("IMDbae: ", text)
