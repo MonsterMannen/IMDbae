@@ -1,32 +1,32 @@
 // IMDBae
 // adding actors and actresses age besides their born date on imdb.com/name/*
 
+var html_ID = ".sc-59a43f1c-2"
+
 log("Extension loaded")
 
 if(isActorAlive()) {
-    var bornClasses = document.querySelectorAll(".sc-dec7a8b-1")
+    var bornClasses = document.querySelectorAll(html_ID)
+    lastClass = bornClasses[bornClasses.length - 1]
 
-    if(bornClasses) {
-        bornClasses.forEach(function(c) {
-            bornDateText = c.children[1].innerHTML
-            age = calcAge(bornDateText)
-            log("born: " + bornDateText + " | " + "age: " + age)
-            c.children[1].innerHTML = c.children[1].innerHTML + ` (age ${age})`
-        })
-
-        log("html updated with age :)")
-    }
+    bornDateText = lastClass.innerText
+    age = calcAge(bornDateText)
+    log("born: " + bornDateText + " | " + "age: " + age)
+    lastClass.innerHTML = bornDateText + ` (age ${age})`
+    log("html updated with age :)")
 }
 
 function isActorAlive() {
-    var actorAlive = false
-    var deadDivs = document.querySelectorAll(".sc-dec7a8b-1")
+    var actorAlive = true
+    var deadDivs = document.querySelectorAll(html_ID)
 
-    if(deadDivs) {
-        actorAlive = deadDivs.length <= 2
-    }
+    deadDivs.forEach(d => {
+        if (d.innerText.toLowerCase().includes("died")) {
+            actorAlive = false
+        }
+    })
+
     log("alive: " + actorAlive)
-
     return actorAlive
 }
 
