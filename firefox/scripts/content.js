@@ -41,12 +41,18 @@ function isActorAlive() {
 
 
 function calcAge(bornDate) {
-    // bornDate format: September 2, 1964
-
     var currentDate = new Date()
 
+    // if bornDate is just a year (ex "1994")
+    if (/^\d{4}$/.test(bornDate.trim())) {
+        return currentDate.getFullYear() - parseInt(bornDate);
+    }
+
+    // otherwise -> bornDate format: September 2, 1964
+
     var age = currentDate.getFullYear() - bornDate.split(",")[1].trim()
-    age--  // assume they haven't had birthday yet
+    // assume they haven't had birthday yet
+    age--
 
     var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
     var bornMonth = bornDate.split(" ")[0]
